@@ -1,0 +1,89 @@
+if empty($XDG_CACHE_HOME)
+  let $XDG_CACHE_HOME = expand('~/.cache')
+endif
+
+" jetpack
+if executable('git')
+  let g:jetpack_download_method = 'git'
+else
+  let g:jetpack_download_method = 'curl'
+endif
+let s:jetpackfile = expand($XDG_CACHE_HOME .. '/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim')
+let s:jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+if !filereadable(s:jetpackfile)
+  call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
+endif
+execute 'set packpath+=' .. expand($XDG_CACHE_HOME .. '/vim')
+
+packadd vim-jetpack
+call jetpack#begin()
+Jetpack 'tani/vim-jetpack'
+Jetpack 'tomasiser/vim-code-dark'
+Jetpack 'vim-jp/vimdoc-ja'
+Jetpack 'prabirshrestha/vim-lsp'
+Jetpack 'mattn/vim-lsp-settings'
+call jetpack#end()
+
+filetype plugin indent on
+syntax enable
+
+set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set number
+set ruler
+colorscheme codedark
+ 
+set hlsearch
+set incsearch
+nnoremap K 10k
+nnoremap J 10j
+nnoremap H 10h
+nnoremap L 10l
+"
+"" Enable logging for debugging
+"let g:lsp_log_verbose = 1
+"let g:lsp_log_file = expand('~/vim-lsp.log')
+"if executable('vim-language-server')
+"    augroup LspManualSetup
+"        autocmd!
+"        autocmd User lsp_setup call lsp#register_server({
+"            \ 'name': 'vim-language-server',
+"            \ 'cmd': {server_info->['vim-language-server', '--stdio']},
+"            \ 'whitelist': ['vim'],
+"            \ })
+"    augroup END
+"endif
+"if executable('clangd')
+"    augroup LspCppSetup
+"        autocmd!
+"        " Register clangd for C and C++ files
+"        autocmd User lsp_setup call lsp#register_server({
+"            \ 'name': 'clangd',
+"            \ 'cmd': {server_info->['clangd']},
+"            \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+"            \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+"            \ })
+"    augroup END
+"endif
+"
+"function! s:on_lsp_buffer_enable() abort
+"    setlocal omnifunc=lsp#complete
+"    setlocal signcolumn=yes
+"    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+"    nmap <buffer> gd <plug>(lsp-definition)
+"    nmap <buffer> gD <plug>(lsp-declaration)
+"    nmap <buffer> K <plug>(lsp-hover)
+"    nmap <buffer> gr <plug>(lsp-references)
+"    nmap <buffer> <leader>ca <plug>(lsp-code-action)
+"    nmap <buffer> <leader>rn <plug>(lsp-rename)
+"    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+"    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+"    " You can add more mappings here.
+"endfunction
+"
+augroup lsp_install
+    autocmd!
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enable()
+augroup END

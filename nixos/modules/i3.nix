@@ -5,6 +5,7 @@
     xorg.xinit
     xorg.xf86inputlibinput
     at-spi2-atk
+    feh
   ];
   services = {
     libinput.enable = true;
@@ -14,10 +15,7 @@
       desktopManager.xterm.enable = false;
       displayManager = {
         startx.enable = true;
-        #defaultSession = "none+i3";
-        #lightdm.enable = false;
       };
-      #libinput.enable = true;
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [

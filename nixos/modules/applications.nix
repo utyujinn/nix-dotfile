@@ -15,6 +15,7 @@
     #haskell-ci
     dbus
     vim
+    vim-language-server
     gcc
     git
     #pcmanfm
@@ -43,7 +44,7 @@
     #firefox
     #sl
     #ripdrag
-    #xdragon
+    dragon
     exiftool
     #ffmpeg
     vscode
@@ -60,5 +61,10 @@
     snes9x
     wla-dx
     gnumake
+    nomacs
+    gwenview
+    digikam
+    nsxiv
+    shotwell
   ];
 }

@@ -1,0 +1,4 @@
+[manager]
+prepend_keymap = [
+  { on = ["c", "p"], run = '''shell 'blobdrop "$1"' --confirm''' },
+]
