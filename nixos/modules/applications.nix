@@ -66,5 +66,6 @@
     digikam
     nsxiv
     shotwell
+    xkeysnail
   ];
 }

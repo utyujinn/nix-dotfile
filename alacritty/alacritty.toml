@@ -1,0 +1,23 @@
+[window]
+  dimensions = {columns = 200, lines = 60}
+  padding = {x = 0, y = 0}
+  opacity = 0.7
+
+[scrolling]
+  history = 10000
+
+  multiplier = 3
+
+[font]
+  normal = {family = 'Kosefont JP', style = 'Regular'}
+  bold = {family = 'Kosefont JP', style = 'Regular'}
+
+  size = 11.0
+
+  offset = {y = 0}
+
+[colors.primary]
+  foreground = '#ffe0f0'
+  background = '#000000'
+
+
