@@ -113,6 +113,8 @@ define_keymap(lambda wm_class: wm_class not in ("Emacs", "URxvt"), {
         K("C-f"): K("C-o"),
         # C-x C-s (save)
         K("C-s"): K("C-s"),
+        # C-x C-n (new)
+        K("C-n"): K("C-n"),
         # C-x k (kill tab)
         K("k"): K("C-f4"),
         # C-x C-c (exit)

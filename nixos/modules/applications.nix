@@ -16,6 +16,7 @@
     dbus
     vim
     vim-language-server
+    emacs
     gcc
     git
     #pcmanfm
