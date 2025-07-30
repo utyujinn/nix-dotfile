@@ -30,6 +30,7 @@
     flameshot
     obsidian
     evince
+    kdePackages.okular
     onboard
     unar
     poppler_utils
