@@ -82,5 +82,6 @@ programs.steam = {
     zsnes2
     obs-studio
     nodejs
+    lazygit
   ];
 }
