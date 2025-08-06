@@ -81,5 +81,6 @@ programs.steam = {
     xkeysnail
     zsnes2
     obs-studio
+    nodejs
   ];
 }

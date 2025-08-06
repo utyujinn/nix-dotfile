@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ...}:
 {
   home.sessionVariables = {
-    EDITOR = "vim";
-    VISUAL = "vim";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
   home.packages = with pkgs; [
     vim
@@ -18,6 +18,10 @@
       #"nvim/init.lua" = s "init.lua";
       #"ideavim/ideavimrc" = s "ideavimrc";
     };
+
+  programs.neovim = {
+    enable = true;
+  };
 }
 #  programs.vim = {
 #    enable = true;
