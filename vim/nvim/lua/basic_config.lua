@@ -20,5 +20,5 @@ opt.shiftwidth = 2
 -- tabstop で設定した数の分の半角スペースが入力されます。
 opt.expandtab = true
 -- カーソル行からの相対的な行番号を表示する
-opt.relativenumber = true
-opt.termguicolors = true
+-- opt.relativenumber = true
+-- opt.termguicolors = true

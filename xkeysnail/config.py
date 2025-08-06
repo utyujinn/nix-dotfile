@@ -21,8 +21,6 @@ define_keymap(None, {
     K("KATAKANAHIRAGANA"): K("BTN_MIDDLE"),
     K("LShift-KATAKANAHIRAGANA"): K("LShift-BTN_MIDDLE"),
 
-    K("GRAVE"): K("ESC"),
-  # 無変換 + 数字キー -> テンキーの数字
     K("RAlt-Key_1"): K("KP1"),
     K("RAlt-Key_2"): K("KP2"),
     K("RAlt-Key_3"): K("KP3"),
@@ -34,23 +32,19 @@ define_keymap(None, {
     K("RAlt-Key_9"): K("KP9"),
     K("RAlt-Key_0"): K("KP0"),
 
-    # 無変換 + 記号 -> テンキーの記号
     K("RAlt-MINUS"): K("KPMINUS"),
-    K("RAlt-EQUAL"): K("KPPLUS"), # Shiftを押さずに+を入力するため
+    K("RAlt-EQUAL"): K("KPPLUS"), 
     K("RAlt-DOT"): K("KPDOT"),
     K("RAlt-SLASH"): K("KPSLASH"),
-    K("RAlt-LEFT_BRACE"): K("KPASTERISK"), # 日本語キーボードの「@」の位置
+    K("RAlt-LEFT_BRACE"): K("KPASTERISK"), 
 
-    # 変換 + H,J,K,L -> Vimライクなカーソル移動
-    # アプリケーションを問わず、矢印キーとして動作する
     K("RAlt-h"): K("LEFT"),
     K("RAlt-j"): K("DOWN"),
     K("RAlt-k"): K("UP"),
     K("RAlt-l"): K("RIGHT"),
 
-    # 変換 + U/I -> Home/End
-    K("RAlt-u"): K("HOME"),
-    K("RAlt-i"): K("END"),
+    K("RAlt-p"): K("HOME"),
+    K("RAlt-n"): K("END"),
 
     K("RSuper-h"): K("Alt-LEFT"),
     K("RSuper-j"): K("Alt-DOWN"),
