@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     xorg.xrandr
     xorg.xinit
+    arandr
     xorg.xf86inputlibinput
     at-spi2-atk
     feh

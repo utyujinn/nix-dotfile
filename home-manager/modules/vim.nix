@@ -1,5 +1,9 @@
 { config, pkgs, inputs, ...}:
 {
+  home.sessionVariables = {
+    EDITOR = "vim";
+    VISUAL = "vim";
+  };
   home.packages = with pkgs; [
     vim
     tree-sitter

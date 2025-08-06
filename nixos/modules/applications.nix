@@ -1,13 +1,22 @@
 { config, pkgs, ... }:
 {
+programs.steam = {
+  enable = true;
+  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+};
   environment.systemPackages = with pkgs; [
+    mesen
     python3
+    uv
     #google-drive-ocamlfuse
     #drive
     rclone
     arduino-ide
     #chromium
     #steam
+    protontricks
     #anki
     texstudio
     texlive.combined.scheme-full
@@ -15,6 +24,7 @@
     #haskell-ci
     dbus
     vim
+    neovim
     vim-language-server
     emacs
     gcc
@@ -69,5 +79,7 @@
     nsxiv
     shotwell
     xkeysnail
+    zsnes2
+    obs-studio
   ];
 }

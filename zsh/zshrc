@@ -36,6 +36,7 @@ RPROMPT='♡ '
 # alias
 alias ls='ls --color'
 alias ll='ls -la --color'
+alias hh='cd ..'
 alias clip='xclip -selection c'
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad

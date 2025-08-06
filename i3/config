@@ -169,7 +169,7 @@ exec_always --no-startup-id fcitx5
 exec_always --no-startup-id feh --randomize --bg-scale $HOME/Pictures/wallpapers/*/*
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id onboard
-exec_always --no-startup-id sudo xkeysnail $HOME/.config/xkeysnail/config.py
+#exec_always --no-startup-id sudo xkeysnail $HOME/.config/xkeysnail/config.py
 
 for_window [class="viry"] floating enable
 for_window [class="Onboard"] floating enable
