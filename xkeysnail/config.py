@@ -43,8 +43,8 @@ define_keymap(None, {
     K("RAlt-k"): K("UP"),
     K("RAlt-l"): K("RIGHT"),
 
-    K("RAlt-p"): K("HOME"),
-    K("RAlt-n"): K("END"),
+    K("RAlt-y"): K("HOME"),
+    K("RAlt-SEMICOLON"): K("END"),
 
     K("RSuper-h"): K("Alt-LEFT"),
     K("RSuper-j"): K("Alt-DOWN"),

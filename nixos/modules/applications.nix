@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+virtualisation.docker.enable = true;
 programs.steam = {
   enable = true;
   remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -7,39 +8,30 @@ programs.steam = {
   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
 };
   environment.systemPackages = with pkgs; [
-    mesen
     python3
     uv
-    #google-drive-ocamlfuse
-    #drive
     rclone
     arduino-ide
-    #chromium
-    #steam
     protontricks
     #anki
     texstudio
     texlive.combined.scheme-full
-    lyx
     #haskell-ci
     dbus
     vim
     neovim
-    vim-language-server
     emacs
     gcc
     git
     #pcmanfm
     wget
     alacritty
-    #ddgr
     vivaldi
     xournalpp
     krita
     libreoffice
     flameshot
     obsidian
-    evince
     kdePackages.okular
     onboard
     unar
@@ -56,32 +48,43 @@ programs.steam = {
     #firefox
     #sl
     #ripdrag
-    dragon
     exiftool
     #ffmpeg
     vscode
     brightnessctl
     anki
-    #wl-clipboard
-    #wvkbd
-    #squeekboard
-    #xkbd
-    #google-chrome
-    #home-manager
-    coq_8_9
     rnote
-    snes9x
-    wla-dx
-    gnumake
-    nomacs
-    gwenview
     digikam
-    nsxiv
-    shotwell
+    
+    wla-dx
+    
+    cmake
+    gnumake
+
     xkeysnail
-    zsnes2
     obs-studio
+    
     nodejs
     lazygit
+    mesen
+    nodejs
+    docker
+    google-cloud-sdk-gce
+    tenv
+    nodePackages.pnpm
+    claude-code
+    gemini-cli
+    python313Packages.django
+    
+    pkg-config
+    qtcreator
+    xorg.libX11
+    xorg.libXext
+    qt6.full
+    hunspell
+    gsettings-desktop-schemas
+    gtk3
+    gtk4
+    vulkan-headers
   ];
 }

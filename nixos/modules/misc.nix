@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, lib, ...}:
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -24,6 +24,28 @@
   services.logind.extraConfig = ''
     HandlePowerKey=suspend
   '';
+
+  environment.sessionVariables = {
+  XDG_DATA_DIRS = lib.mkForce (
+    "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}:" +
+    "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:" +
+    "${pkgs.gtk4}/share/gsettings-schemas/${pkgs.gtk4.name}:" +
+    "${pkgs.gtk4}/share:" +
+    "${pkgs.glib}/share/glib-2.0/schemas:" +
+    "$XDG_DATA_DIRS"
+  );
+};
+
+
+  #services.dbus.enable = true;
+    #xdg.portal = {
+      #enable = true;
+      #extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
+
+    # 一部のWMでは、特定のバックエンドも必要になる場合があります。
+    #};
+
+  #programs.dconf.enable = true;
 
 #darktheme
   home-manager.users.utyujin = {
