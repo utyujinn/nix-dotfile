@@ -11,7 +11,7 @@ in
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    initExtra = ''
+    initContent = ''
       source "$HOME/.zshrc_comp"
     '';
   };
