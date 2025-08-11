@@ -74,6 +74,7 @@ programs.steam = {
     nodePackages.pnpm
     claude-code
     gemini-cli
+    #claude-code
     python313Packages.django
     
     pkg-config
