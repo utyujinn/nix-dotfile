@@ -56,7 +56,6 @@ programs.steam = {
     #firefox
     #sl
     #ripdrag
-    dragon
     exiftool
     #ffmpeg
     vscode
@@ -74,7 +73,6 @@ programs.steam = {
     wla-dx
     gnumake
     nomacs
-    gwenview
     digikam
     nsxiv
     shotwell
