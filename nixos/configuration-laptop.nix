@@ -3,7 +3,7 @@
   system.stateVersion = "24.11";
   imports =[
     ./hardware-configuration.nix
-    ./custom-packages.nix
+    ./modules/custom-packages.nix
     ./modules/locale.nix
     ./modules/user.nix
     ./modules/misc.nix
