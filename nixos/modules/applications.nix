@@ -1,12 +1,13 @@
 { config, pkgs, ... }:
+
 {
-virtualisation.docker.enable = true;
-programs.steam = {
-  enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-};
+  virtualisation.docker.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
   environment.systemPackages = with pkgs; [
     python3
     uv
@@ -63,29 +64,35 @@ programs.steam = {
 
     xkeysnail
     obs-studio
+    code-cursor
+
+    mesen
+    zsnes2
+    claude-code
+    lazygit
     
     nodejs
-    lazygit
-    mesen
     nodejs
     docker
     google-cloud-sdk-gce
     tenv
     nodePackages.pnpm
-    claude-code
-    gemini-cli
-    #claude-code
     python313Packages.django
     
-    pkg-config
-    qtcreator
-    xorg.libX11
-    xorg.libXext
-    qt6.full
-    hunspell
-    gsettings-desktop-schemas
-    gtk3
-    gtk4
-    vulkan-headers
+    #pkg-config
+    #qtcreator
+    #xorg.libX11
+    #xorg.libXext
+    #qt6.full
+    #hunspell
+    #gsettings-desktop-schemas
+    #gtk3
+    #gtk4
+    #vulkan-headers
+
+    firebase-tools
+    gh
+    
+    snes-pixel-editor
   ];
 }
