@@ -1,7 +1,14 @@
 { config, pkgs, lib, ...}:
 {
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;  # This will detect other OS installations
+    };
+    efi.canTouchEfiVariables = true;
+  };
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = "nix-command flakes" ;
