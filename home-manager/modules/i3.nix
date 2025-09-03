@@ -7,4 +7,8 @@
     {
       "i3/config" = s "config";
     };
+
+  home.file.".xinitrc" = {
+    source = ../../i3/xinitrc;
+  };
 }
