@@ -1,12 +1,7 @@
 { config, pkgs, lib, ...}:
 {
   boot.loader = {
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      useOSProber = true;  # This will detect other OS installations
-    };
+    systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
 
@@ -28,9 +23,14 @@
     ];
   };
 
+  #services.logind.settings.Login = ''
   services.logind.extraConfig = ''
     HandlePowerKey=suspend
   '';
+
+  #services.fprintd.enable = true;
+  #services.fprintd.tod.enable = true;
+  #services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
 
   environment.sessionVariables = {
   XDG_DATA_DIRS = lib.mkForce (

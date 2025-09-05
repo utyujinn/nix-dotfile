@@ -1,0 +1,18 @@
+# Espansoの基本設定
+toggle_key: ALT+SPACE
+search_shortcut: ALT+SHIFT+SPACE
+
+# バックエンドの設定
+backend: Auto
+
+# クリップボード設定
+clipboard_threshold: 100
+preserve_clipboard: false
+
+# 通知設定
+show_notifications: true
+show_icon: true
+
+# パフォーマンス設定
+undo_backspace: true
+fast_inject: true

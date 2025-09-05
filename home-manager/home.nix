@@ -17,6 +17,7 @@
     ./modules/xkeysnail.nix
     ./modules/rclone.nix
     ./modules/xournalpp.nix
+    ./modules/espanso.nix
   ];
   programs.home-manager.enable = true;
 }

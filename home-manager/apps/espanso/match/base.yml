@@ -1,0 +1,32 @@
+matches:
+  # 日付と時刻
+  - trigger: ":date"
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y-%m-%d"
+  
+  - trigger: ":time"
+    replace: "{{time}}"
+    vars:
+      - name: time
+        type: date
+        params:
+          format: "%H:%M"
+  
+  - trigger: ":now"
+    replace: "{{datetime}}"
+    vars:
+      - name: datetime
+        type: date
+        params:
+          format: "%Y-%m-%d %H:%M:%S"
+
+  # よく使う記号
+  - trigger: ":arrow"
+    replace: "→"
+  
+  - trigger: ":check"
+    replace: "✓"

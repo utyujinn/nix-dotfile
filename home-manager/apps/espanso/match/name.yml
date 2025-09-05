@@ -1,0 +1,18 @@
+matches:
+  - trigger: ":lnk"
+    replace: "石橋"
+
+  - trigger: ":fnk"
+    replace: "憲尚"
+
+  - trigger: ":lnf"
+    replace: "イシバシ"
+
+  - trigger: ":fnf"
+    replace: "ケンショウ"
+
+  - trigger: ":address"
+    replace: "東京都豊島区西巣鴨東京大学豊島国際学生宿舎B棟1-G-7"
+    
+  - trigger: ":tel"
+    replace: "080-9415-1112"

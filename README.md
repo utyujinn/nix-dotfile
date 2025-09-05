@@ -1,17 +1,13 @@
 # nix-dotfile
 You can setup nixos with i3 desktop by using this in few minutes.
-## contents
-- vim
-- zsh
-With famous plugins
-- i3
-lightweight desktop
-- yazi
-file manager.
-ctrl+c to drag&drop file.
-- alacritty
-tty
-- xkeysnail
-key remapper
-- rclone
-automouont gdrive file
+## setup
+```
+cp /etc/nixos/hardware-configuration.nix nixos/hardware-configuration.nix 
+sudo nixos-rebuild switch --flake .#laptop
+```
+
+## rclone
+```
+rclone config
+```
+name is gdrive.

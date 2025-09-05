@@ -1,98 +1,99 @@
 { config, pkgs, ... }:
 
 {
-  virtualisation.docker.enable = true;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
+  virtualisation = {
+    docker.enable = true;
   };
+  programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
+    ####################
+    # Development      #
+    ####################
     python3
     uv
-    rclone
+    gcc
     arduino-ide
-    protontricks
-    #anki
-    texstudio
-    texlive.combined.scheme-full
-    #haskell-ci
-    dbus
+    git
+    cmake
+    gnumake
+    #R
+    #rstudio
+    vscode
+    lazygit
+    google-cloud-sdk-gce
+    nodejs
+    nodePackages.pnpm
+    python313Packages.django
+    claude-code
+
+    ####################
+    # Text Editors     #
+    ####################
     vim
     neovim
     emacs
-    gcc
-    git
-    #pcmanfm
-    wget
+
+    ####################
+    # Terminal Tools   #
+    ####################
     alacritty
-    vivaldi
-    xournalpp
-    krita
-    libreoffice
-    flameshot
-    obsidian
-    kdePackages.okular
-    onboard
-    unar
-    poppler_utils
-    xclip
-    blobdrop
+    wget
     yazi
     zsh
     zsh-autosuggestions
-    #zsh-autocompletion
-    R
-    rstudio
-    light
-    #firefox
-    #sl
-    #ripdrag
-    exiftool
-    #ffmpeg
-    vscode
-    brightnessctl
-    anki
-    rnote
+    xclip
+    dbus
+    rclone
+
+    ####################
+    # Web Browsers     #
+    ####################
+    vivaldi
+
+    ####################
+    # Office & Docs    #
+    ####################
+    libreoffice
+    xournalpp
+    obsidian
+    kdePackages.okular
+    texstudio
+    texlive.combined.scheme-full
+    #rnote
+    #anki
+
+    ####################
+    # Graphics & Media #
+    ####################
+    krita
+    flameshot
     digikam
-    
-    wla-dx
-    
-    cmake
-    gnumake
-
-    xkeysnail
     obs-studio
-    code-cursor
-
-    mesen
-    zsnes2
-    claude-code
-    lazygit
-    
-    nodejs
-    nodejs
-    docker
-    google-cloud-sdk-gce
-    tenv
-    nodePackages.pnpm
-    python313Packages.django
-    
-    #pkg-config
-    #qtcreator
-    #xorg.libX11
-    #xorg.libXext
-    #qt6.full
-    #hunspell
-    #gsettings-desktop-schemas
-    #gtk3
-    #gtk4
-    #vulkan-headers
-
-    firebase-tools
-    gh
-    
     snes-pixel-editor
+
+    ####################
+    # System Tools     #
+    ####################
+    #light
+    brightnessctl
+    xkeysnail
+    onboard
+    #exiftool
+    unar
+    poppler_utils
+    blobdrop
+    espanso
+
+    ####################
+    # Gaming & Retro   #
+    ####################
+    protontricks
+    wla-dx
+    mesen
+
+    ####################
+    # Tmp              #
+    ####################
+
   ];
 }
