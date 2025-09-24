@@ -4,9 +4,11 @@
     xorg.xrandr
     xorg.xinit
     arandr
+    autorandr
     xorg.xf86inputlibinput
     at-spi2-atk
     feh
+    rofi
   ];
   services = {
     libinput.enable = true;

@@ -18,7 +18,8 @@ define_multipurpose_modmap({
 define_keymap(None, {
 
   # for blender
-    K("KATAKANAHIRAGANA"): K("BTN_MIDDLE"),
+    #K("KATAKANAHIRAGANA"): K("BTN_MIDDLE"),
+    K("KATAKANAHIRAGANA"): K("BTN_RIGHT"),
     K("LShift-KATAKANAHIRAGANA"): K("LShift-BTN_MIDDLE"),
 
     K("RAlt-Key_1"): K("KP1"),

@@ -4,7 +4,21 @@
   virtualisation = {
     docker.enable = true;
   };
-  programs.steam.enable = true;
+  services.tailscale.enable = true;
+  services.openvpn.servers = {
+    laptop = {
+      config = ''
+        config /home/utyujin/laptop.ovpn
+      '';
+      autoStart = false;
+    };
+  };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
   environment.systemPackages = with pkgs; [
     ####################
     # Development      #
@@ -44,11 +58,17 @@
     xclip
     dbus
     rclone
+    tmux
+    zoxide
+    fzf
+    tree
+    gh
 
     ####################
     # Web Browsers     #
     ####################
     vivaldi
+    firefox
 
     ####################
     # Office & Docs    #
@@ -59,8 +79,11 @@
     kdePackages.okular
     texstudio
     texlive.combined.scheme-full
-    #rnote
+    httrack
+    rnote
+    wechat
     #anki
+    slack
 
     ####################
     # Graphics & Media #
@@ -94,6 +117,12 @@
     ####################
     # Tmp              #
     ####################
+
+    ####################
+    # Work             #
+    ####################
+    ruff
+    lefthook
 
   ];
 }

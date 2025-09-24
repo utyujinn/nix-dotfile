@@ -40,9 +40,18 @@ alias hh='cd ..'
 alias g='lazygit'
 alias n='nvim'
 alias v='vim'
+alias m='mkdir'
+alias c='cd'
+alias t='tmux'
+alias s='sudo'
+alias ...='../..'
+alias ....='../../..'
+alias .....='../../../..'
 alias clip='xclip -selection c'
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
+
+eval "$(zoxide init zsh)"
 
 function dad() {
   blobdrop "$1"

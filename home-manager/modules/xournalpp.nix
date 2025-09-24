@@ -8,8 +8,8 @@
       <property name="pressureMultiplier" value="1"/>
       <property name="zoomGesturesEnabled" value="true"/>
       <property name="selectedToolbar" value="Toolbar Left"/>
-      <property name="lastSavePath" value="/home/utyujin/r7S/相対論"/>
-      <property name="lastOpenPath" value="/home/utyujin/r7S/相対論"/>
+      <property name="lastSavePath" value=""/>
+      <property name="lastOpenPath" value=""/>
       <property name="lastImagePath" value=""/>
       <property name="edgePanSpeed" value="20"/>
       <property name="edgePanMaxMult" value="5"/>

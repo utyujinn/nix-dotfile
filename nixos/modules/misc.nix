@@ -5,6 +5,7 @@
     efi.canTouchEfiVariables = true;
   };
 
+  programs.nix-ld.enable = true;
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = "nix-command flakes" ;
 
@@ -33,6 +34,7 @@
   #services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
 
   environment.sessionVariables = {
+  PATH = "$PATH:.";
   XDG_DATA_DIRS = lib.mkForce (
     "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}:" +
     "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:" +

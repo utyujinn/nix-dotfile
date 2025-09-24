@@ -34,7 +34,9 @@ bindsym $mod+o exec obsidian
 bindsym $mod+e exec alacritty -e vifm
 bindsym $mod+q kill
 
-bindsym $mod+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -74,7 +76,7 @@ bindsym $mod+w layout tabbed
 #bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
-#bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 #bindsym $mod+space focus mode_toggle
@@ -171,6 +173,11 @@ exec_always --no-startup-id flameshot
 exec_always --no-startup-id onboard
 exec_always --no-startup-id sudo xkeysnail $HOME/.config/xkeysnail/config.py
 exec_always --no-startup-id espanso service start --unmanaged
+exec_always --no-startup-id autorandr --change
+
+exec_always --no-startup-id xinput --map-to-output "Wacom HID 52B0 Pen Pen (0x8020f480)" "eDP-1"
+exec_always --no-startup-id xinput --map-to-output "Wacom HID 52B0 Pen Eraser (0x8020f480)" "eDP-1"
+exec_always --no-startup-id xinput --map-to-output "Wacom HID 52B0 Finger" "eDP-1"
 
 for_window [class="viry"] floating enable
 for_window [class="Onboard"] floating enable
@@ -180,4 +187,5 @@ for_window [class="ColorPaletteApp"] floating enable
 bindsym $mod+t floating toggle
 
 bindsym Print exec flameshot gui
+
 

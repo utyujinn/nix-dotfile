@@ -18,6 +18,8 @@
     ./modules/rclone.nix
     ./modules/xournalpp.nix
     ./modules/espanso.nix
+    ./modules/tmux.nix
+    ./modules/cursor.nix
   ];
   programs.home-manager.enable = true;
 }
