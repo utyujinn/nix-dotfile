@@ -6,6 +6,10 @@
     in
     {
       "i3/config" = s "config";
+      "autorandr/postswitch" = {
+        source = ../apps/i3 + "/postswitch";
+        executable = true;
+      };
     };
 
   home.file.".xinitrc" = {

@@ -31,17 +31,19 @@ bindsym $mod+x exec xournalpp
 bindsym $mod+b exec vivaldi
 bindsym $mod+c exec code
 bindsym $mod+o exec obsidian
-bindsym $mod+e exec alacritty -e vifm
+bindsym $mod+e exec alacritty -e yazi
+bindsym $mod+l exec alacritty -e sudo slock
 bindsym $mod+q kill
 
-#bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show drun
-bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec --no-startup-id ulauncher
+#bindsym $mod+d exec --no-startup-id rofi -show drun
+#bindsym $mod+Tab exec --no-startup-id rofi -show window
 
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+#bindsym $mod+h focus left
+#bindsym $mod+j focus down
+#bindsym $mod+k focus up
+#bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -174,10 +176,7 @@ exec_always --no-startup-id onboard
 exec_always --no-startup-id sudo xkeysnail $HOME/.config/xkeysnail/config.py
 exec_always --no-startup-id espanso service start --unmanaged
 exec_always --no-startup-id autorandr --change
-
-exec_always --no-startup-id xinput --map-to-output "Wacom HID 52B0 Pen Pen (0x8020f480)" "eDP-1"
-exec_always --no-startup-id xinput --map-to-output "Wacom HID 52B0 Pen Eraser (0x8020f480)" "eDP-1"
-exec_always --no-startup-id xinput --map-to-output "Wacom HID 52B0 Finger" "eDP-1"
+exec_always --no-startup-id copyq
 
 for_window [class="viry"] floating enable
 for_window [class="Onboard"] floating enable

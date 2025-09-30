@@ -18,7 +18,7 @@
         };
     in
       getFrom
-        "https://github.com/utyujinn/lumine_cursor/releases/download/v1.3.0/lumine_cursor_linux.tar.gz"
+        "https://github.com/utyujinn/lumine_cursor/releases/download/v2.0.0/lumine_cursor_linux.tar.gz"
         "sha256-LLE6broOMrboFCtWAUXkaxg+Fa3pUecTPGbqsdaxJeQ="
         "lumine_cursor_linux";
 }

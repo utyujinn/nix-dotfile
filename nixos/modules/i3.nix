@@ -6,7 +6,7 @@
     arandr
     autorandr
     xorg.xf86inputlibinput
-    at-spi2-atk
+    at-spi2-core
     feh
     rofi
   ];

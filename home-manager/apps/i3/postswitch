@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Wacomデバイスを内蔵ディスプレイ 'eDP-1' にマッピングする
+xinput --map-to-output "Wacom HID 52B0 Pen Pen (0x8020f480)" "eDP-1"
+xinput --map-to-output "Wacom HID 52B0 Pen Eraser (0x8020f480)" "eDP-1"
+xinput --map-to-output "Wacom HID 52B0 Finger" "eDP-1"

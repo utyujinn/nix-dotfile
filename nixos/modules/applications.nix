@@ -63,6 +63,15 @@
     fzf
     tree
     gh
+    copyq
+    #ulauncher
+    bat
+    ripgrep
+    rofi
+    rofi-calc
+    rofi-systemd
+    rofi-bluetooth
+    rofi-power-menu
 
     ####################
     # Web Browsers     #
@@ -106,6 +115,9 @@
     poppler_utils
     blobdrop
     espanso
+    slock
+    iio-sensor-proxy
+    gnomeExtensions.screen-rotate
 
     ####################
     # Gaming & Retro   #

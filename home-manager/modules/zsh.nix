@@ -15,4 +15,9 @@ in
       source "$HOME/.zshrc_comp"
     '';
   };
+
+  programs.autojump = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }
