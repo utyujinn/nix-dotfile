@@ -52,6 +52,7 @@ export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
 eval "$(zoxide init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
 
 function dad() {
   blobdrop "$1"

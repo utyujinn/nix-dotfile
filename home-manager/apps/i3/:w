@@ -1,3 +1,0 @@
-export GTK_MODULES=gail:atk-bridge
-export NO_AT_BRIDGE=0
-exec i3

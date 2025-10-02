@@ -21,7 +21,7 @@
     ./modules/tmux.nix
     ./modules/cursor.nix
     ./modules/misc.nix
-    ./modules/rofi.nix
+    #./modules/rofi.nix
   ];
   programs.home-manager.enable = true;
 }

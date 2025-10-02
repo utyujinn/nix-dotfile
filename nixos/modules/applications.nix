@@ -72,7 +72,8 @@
     rofi-systemd
     rofi-bluetooth
     rofi-power-menu
-
+    atuin
+    
     ####################
     # Web Browsers     #
     ####################

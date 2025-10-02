@@ -32,10 +32,9 @@ bindsym $mod+b exec vivaldi
 bindsym $mod+c exec code
 bindsym $mod+o exec obsidian
 bindsym $mod+e exec alacritty -e yazi
-bindsym $mod+l exec alacritty -e sudo slock
 bindsym $mod+q kill
 
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -show drun
 #bindsym $mod+d exec --no-startup-id ulauncher
 #bindsym $mod+d exec --no-startup-id rofi -show drun
 #bindsym $mod+Tab exec --no-startup-id rofi -show window
@@ -177,6 +176,7 @@ exec_always --no-startup-id sudo xkeysnail $HOME/.config/xkeysnail/config.py
 exec_always --no-startup-id espanso service start --unmanaged
 exec_always --no-startup-id autorandr --change
 exec_always --no-startup-id copyq
+exec_always --no-startup-id touchegg
 
 for_window [class="viry"] floating enable
 for_window [class="Onboard"] floating enable
