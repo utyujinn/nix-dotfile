@@ -16,7 +16,7 @@
     ./modules/git.nix
     ./modules/xkeysnail.nix
     ./modules/rclone.nix
-    ./modules/xournalpp.nix
+    #./modules/xournalpp.nix
     ./modules/espanso.nix
     ./modules/tmux.nix
     ./modules/cursor.nix

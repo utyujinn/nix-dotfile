@@ -3,11 +3,24 @@ xournalpp = [
   { run = 'xournalpp "$@"', orphan = true, for = "unix"},
 ]
 pdf = [
-  { run = 'evince "$@"', orphan = true, for = "unix"},
+  { run = 'okular "$@"', orphan = true, for = "unix"},
+]
+image = [
+  { run = 'nomacs "$@"', orphan = true, for = "unix"},
+]
+calc = [
+  { run = 'libreoffice "$@"', orphan = true, for = "unix"},
 ]
 
 [open]
 prepend_rules = [
   { name = "*.xopp", use = "xournalpp"},
   { name = "*.pdf", use = "pdf"},
+  { name = "*.jpg", use = "image"},
+  { name = "*.jpeg", use = "image"},
+  { name = "*.png", use = "image"},
+  { name = "*.bmp", use = "image"},
+  { name = "*.tiff", use = "image"},
+  { name = "*.gif", use = "image"},
+  { name = "*.csv", use = "calc"},
 ]

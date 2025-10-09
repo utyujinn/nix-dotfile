@@ -30,7 +30,13 @@
     HandlePowerKey=suspend
   '';
 
-  services.tlp.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      RESTORE_DEVICE_STATE_ON_STARTUP = 0;
+      DEVICES_TO_ENABLE_ON_STARTUP = "wifi bluetooth";
+    };
+  };
   services.touchegg.enable = true;
 
   #services.fprintd.enable = true;

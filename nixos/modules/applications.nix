@@ -3,6 +3,7 @@
 {
   virtualisation = {
     docker.enable = true;
+    podman.enable = true;
   };
   services.tailscale.enable = true;
   services.openvpn.servers = {
@@ -94,6 +95,7 @@
     wechat
     #anki
     slack
+    zoom-us
 
     ####################
     # Graphics & Media #
@@ -101,6 +103,7 @@
     krita
     flameshot
     digikam
+    nomacs
     obs-studio
     snes-pixel-editor
 
@@ -130,6 +133,13 @@
     ####################
     # Tmp              #
     ####################
+    podman
+    podman-compose
+    #freedp3-x11
+    freerdp
+    dialog
+    #winapps
+    libnotify
 
     ####################
     # Work             #
