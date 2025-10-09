@@ -13,5 +13,6 @@
     ./modules/audio.nix
     ./modules/applications.nix
     ./modules/i3.nix
+    ./modules/pen.nix
   ];
 }

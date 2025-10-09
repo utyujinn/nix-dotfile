@@ -9,6 +9,12 @@
     at-spi2-core
     feh
     rofi
+    # アニメーション用コンポジタ
+    picom
+    # i3のアニメーション拡張
+    i3-auto-layout
+    # ワークスペース切り替えスクリプト用
+    jq
   ];
   services = {
     libinput.enable = true;

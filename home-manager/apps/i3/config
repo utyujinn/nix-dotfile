@@ -163,10 +163,22 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        i3bar_command i3bar --transparency
+        colors {
+                background #00000088
+                statusline #ffffff
+                separator #666666
+                
+                focused_workspace  #4c7899 #285577 #ffffff
+                active_workspace   #333333 #5f676a #ffffff
+                inactive_workspace #333333 #222222 #888888
+                urgent_workspace   #2f343a #900000 #ffffff
+                binding_mode       #2f343a #900000 #ffffff
+        }
 }
 exec_always --no-startup-id fcitx5
 #exec_always --no-startup-id nitrogen --set-auto $HOME/Pictures/nyakori/kori.jpeg --head=0 && nitrogen --set-auto $HOME/Pictures/nyakori/toru_kori1.jpeg --head=1
-#exec_always --no-startup-id picom
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 #exec_always --no-startup-id $HOME/,config/i3/launch.sh 
 #exec_always --no-startup-id feh --bg-scale $HOME/Pictures/wallpapers/kori.jpeg
 exec_always --no-startup-id feh --randomize --bg-scale $HOME/Pictures/wallpapers/*/*

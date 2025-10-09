@@ -39,6 +39,7 @@
   };
   services.touchegg.enable = true;
 
+
   #services.fprintd.enable = true;
   #services.fprintd.tod.enable = true;
   #services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
@@ -87,6 +88,7 @@
 
     # Wayland, X, etc. support for session vars
     systemd.user.sessionVariables = config.home-manager.users.utyujin.home.sessionVariables;
+
   };
 
   qt = {
