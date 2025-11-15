@@ -12,10 +12,6 @@
         source = ../apps/i3 + "/postswitch";
         executable = true;
       };
-      "i3/workspace-animation.sh" = {
-        source = ../apps/i3 + "/workspace-animation.sh";
-        executable = true;
-      };
     };
 
   home.file.".xinitrc" = {

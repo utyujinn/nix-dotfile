@@ -181,14 +181,13 @@ exec_always --no-startup-id fcitx5
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 #exec_always --no-startup-id $HOME/,config/i3/launch.sh 
 #exec_always --no-startup-id feh --bg-scale $HOME/Pictures/wallpapers/kori.jpeg
-exec_always --no-startup-id feh --randomize --bg-scale $HOME/Pictures/wallpapers/*/*
-exec_always --no-startup-id flameshot
-exec_always --no-startup-id onboard
+exec_always --no-startup-id sudo pkill feh; feh --randomize --bg-scale $HOME/Pictures/wallpapers/*/*
+exec_always --no-startup-id sudo pkill flameshot;flameshot
+exec_always --no-startup-id sudo pkill; onboard; onboard
 exec_always --no-startup-id sudo xkeysnail $HOME/.config/xkeysnail/config.py
-exec_always --no-startup-id espanso service start --unmanaged
+exec_always --no-startup-id sudo pkill espanso;espanso service start --unmanaged
 exec_always --no-startup-id autorandr --change
-exec_always --no-startup-id copyq
-exec_always --no-startup-id touchegg
+exec_always --no-startup-id sudo pkill touchegg;touchegg
 
 for_window [class="viry"] floating enable
 for_window [class="Onboard"] floating enable
@@ -198,5 +197,7 @@ for_window [class="ColorPaletteApp"] floating enable
 bindsym $mod+t floating toggle
 
 bindsym Print exec flameshot gui
+
+bindsym KEY_L exec sudo slock
 
 

@@ -5,7 +5,7 @@
     docker.enable = true;
     podman.enable = true;
   };
-  services.tailscale.enable = true;
+  #services.tailscale.enable = true;
   services.openvpn.servers = {
     laptop = {
       config = ''
@@ -40,6 +40,9 @@
     nodePackages.pnpm
     python313Packages.django
     claude-code
+    gemini-cli
+    qwen-code
+    codex
 
     ####################
     # Text Editors     #
@@ -74,11 +77,14 @@
     rofi-bluetooth
     rofi-power-menu
     atuin
+    tenv
+    cloudflared
     
     ####################
     # Web Browsers     #
     ####################
     vivaldi
+    google-chrome
     firefox
 
     ####################
@@ -146,6 +152,7 @@
     ####################
     ruff
     lefthook
+    bun
 
   ];
 }

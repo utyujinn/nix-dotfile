@@ -3,6 +3,7 @@
 {
   fonts = {
     packages = with pkgs; [
+      udev-gothic
       (pkgs.stdenv.mkDerivation {
         name = "Kosefont JP";
         src = pkgs.fetchFromGitHub {
@@ -20,9 +21,9 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = [ "Kosefont JP" "setofont" ];
-        sansSerif = [ "Kosefont JP" "setofont" ];
-        monospace = [ "Kosefont JP" "setofont" ];
+        serif = [ "UDEV Gothic" "Kosefont JP" "setofont" ];
+        sansSerif = [ "UDEV Gothic" "Kosefont JP" "setofont" ];
+        monospace = [ "UDEV Gothic" "Kosefont JP" "setofont" ];
       };
     };
   };
