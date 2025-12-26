@@ -146,6 +146,11 @@
     dialog
     #winapps
     libnotify
+    R
+    rstudio
+    python313Packages.jupyterlab
+    libwebsockets
+    openssl.dev
 
     ####################
     # Work             #

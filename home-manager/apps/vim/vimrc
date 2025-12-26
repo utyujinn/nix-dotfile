@@ -28,7 +28,8 @@ filetype plugin indent on
 syntax enable
 
 set autoindent
-set expandtab
+set smartindent
+"set expandtab
 set tabstop=2
 set shiftwidth=2
 set number
