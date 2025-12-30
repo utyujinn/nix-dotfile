@@ -25,10 +25,13 @@
     ];
   };
 
+  #services.logind.extraConfig = ''
   #services.logind.settings.Login = ''
-  services.logind.extraConfig = ''
-    HandlePowerKey=suspend
-  '';
+    #HandlePowerKey=suspend
+  #'';
+	services.logind.settings.Login = {
+		HandlePowerKey = "suspend";
+	};
 
   services.tlp = {
     enable = true;

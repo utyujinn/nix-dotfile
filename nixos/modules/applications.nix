@@ -98,7 +98,7 @@
     texlive.combined.scheme-full
     httrack
     rnote
-    wechat
+    #wechat  # Temporarily disabled due to hash mismatch
     #anki
     slack
     zoom-us
@@ -122,7 +122,7 @@
     onboard
     #exiftool
     unar
-    poppler_utils
+    poppler-utils
     blobdrop
     espanso
     slock
