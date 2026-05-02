@@ -166,7 +166,6 @@
     podman
     podman-compose
     #freedp3-x11
-    freerdp
     dialog
     #winapps
     libnotify

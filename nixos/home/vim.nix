@@ -10,11 +10,11 @@
   ];
 
   xdg.configFile."nvim" = {
-    source = ../apps/vim/nvim; # あなたの環境に合わせてパスを確認
+    source = ../dotfile/vim/nvim; # あなたの環境に合わせてパスを確認
     recursive = true;
   };
   # "vim/vimrc" はもしvimも使うなら残す
-  xdg.configFile."vim/vimrc".source = ../apps/vim/vimrc;
+  xdg.configFile."vim/vimrc".source = ../dotfile/vim/vimrc;
 
   programs.neovim = {
     enable = true;

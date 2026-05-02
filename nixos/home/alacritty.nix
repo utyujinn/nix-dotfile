@@ -2,7 +2,7 @@
 {
   xdg.configFile =
     let
-      s = name: { source = ../apps/alacritty + "/${name}"; };
+      s = name: { source = ../dotfile/alacritty + "/${name}"; };
     in
     {
       "alacritty/alacritty.toml" = s "alacritty.toml";

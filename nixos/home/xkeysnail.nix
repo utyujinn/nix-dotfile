@@ -2,7 +2,7 @@
 {
   xdg.configFile =
     let
-      s = name: { source = ../apps/xkeysnail + "/${name}"; };
+      s = name: { source = ../dotfile/xkeysnail + "/${name}"; };
     in
     {
       # entry files

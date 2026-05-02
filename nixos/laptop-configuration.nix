@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 {
   system.stateVersion = "24.11";
+  home-manager.users.utyujin = import ./home-manager/home.nix;
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.backupFileExtension = "hm-bak";
   imports =[
     ./hardware-configuration.nix
     ./modules/custom-packages.nix

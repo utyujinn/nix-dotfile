@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  s = name: { source = ../apps/zsh + "/${name}"; };
+  s = name: { source = ../dotfile/zsh + "/${name}"; };
 in
 {
   home.file = {

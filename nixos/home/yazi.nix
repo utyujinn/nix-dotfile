@@ -3,7 +3,7 @@
   #xdg.configFile = builtins.foldl
   xdg.configFile =
     let
-      s = name: { source = ../apps/yazi + "/${name}"; };
+      s = name: { source = ../dotfile/yazi + "/${name}"; };
     in
     {
       # entry files

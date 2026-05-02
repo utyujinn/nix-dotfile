@@ -8,7 +8,7 @@
   };
 
   xdg.configFile."espanso" = {
-    source = ../apps/espanso;
+    source = ../dotfile/espanso;
     recursive = true;
   };
 }
