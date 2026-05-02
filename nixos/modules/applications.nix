@@ -5,12 +5,14 @@
     docker.enable = true;
     podman.enable = true;
   };
-  #services.tailscale.enable = true;
+	services.resolved.enable = true;
+  services.tailscale.enable = true;
   services.openvpn.servers = {
     laptop = {
       config = ''
         config /home/utyujin/laptop.ovpn
       '';
+			updateResolvConf = true;
       autoStart = false;
     };
   };
@@ -19,6 +21,11 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
+  };
+  programs.clash-verge = {
+    enable = true;
+    tunMode = true;
+    serviceMode = true;
   };
   environment.systemPackages = with pkgs; [
     ####################
@@ -43,6 +50,16 @@
     gemini-cli
     qwen-code
     codex
+		antigravity
+		rustc
+		cargo
+		clippy
+		rustfmt
+		ltspice
+		iverilog
+		gtkwave
+		kicad
+		gnuplot
 
     ####################
     # Text Editors     #
@@ -57,6 +74,7 @@
     alacritty
     wget
     yazi
+    pcmanfm
     zsh
     zsh-autosuggestions
     xclip
@@ -107,6 +125,7 @@
     # Graphics & Media #
     ####################
     krita
+		inkscape
     flameshot
     digikam
     nomacs
@@ -128,6 +147,10 @@
     slock
     iio-sensor-proxy
     gnomeExtensions.screen-rotate
+		rustdesk
+    appimage-run
+    pavucontrol
+		v2rayn
 
     ####################
     # Gaming & Retro   #
@@ -135,6 +158,7 @@
     protontricks
     wla-dx
     mesen
+		olympus
 
     ####################
     # Tmp              #

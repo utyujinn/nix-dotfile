@@ -33,6 +33,7 @@ bindsym $mod+c exec code
 bindsym $mod+o exec obsidian
 bindsym $mod+e exec alacritty -e yazi
 bindsym $mod+q kill
+bindsym $mod+v exec --no-startup-id pavucontrol
 
 bindsym $mod+d exec --no-startup-id rofi -show drun
 #bindsym $mod+d exec --no-startup-id ulauncher
@@ -193,6 +194,7 @@ for_window [class="viry"] floating enable
 for_window [class="Onboard"] floating enable
 for_window [class="hello"] floating enable
 for_window [class="ColorPaletteApp"] floating enable
+for_window [class="pavucontrol"] floating enable, resize set 600 400, move position px 1300 px 600
 
 bindsym $mod+t floating toggle
 

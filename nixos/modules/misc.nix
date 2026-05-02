@@ -25,6 +25,10 @@
     ];
   };
 
+  #security.polkit.enable = true;
+
+  #services.envfs.enable = true;
+
   #services.logind.extraConfig = ''
   #services.logind.settings.Login = ''
     #HandlePowerKey=suspend
