@@ -3,8 +3,7 @@
   system.stateVersion = "25.11";
   wsl.enable = true;
   wsl.defaultUser = "unia";
-  
-  
+
   home-manager = {
     users.unia = import ./wsl-home.nix;
     useGlobalPkgs = true;
@@ -16,15 +15,16 @@
     shell = pkgs.zsh;
   };
 
-  programs.zsh.enable=true;
-	programs.nix-ld.enable = true;
+  programs = {
+    zsh.enable=true;
+	  nix-ld.enable = true;
+  };
 	
 	virtualisation.podman.enable = true;
 	
 	services.tailscale.enable = true;
 
 	environment.systemPackages = with pkgs; [
-		
     # Development
     python3
     uv
