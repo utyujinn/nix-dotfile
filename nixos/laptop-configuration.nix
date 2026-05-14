@@ -147,6 +147,8 @@
     tlp = {
       enable = true;
       settings = {
+        BACKLIGHT_CONTROL_ON_AC = 0;
+        BACKLIGHT_CONTROL_ON_BAT = 0;
         RESTORE_DEVICE_STATE_ON_STARTUP = 0;
         DEVICES_TO_ENABLE_ON_STARTUP = "wifi bluetooth";
       };
