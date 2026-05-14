@@ -73,6 +73,7 @@
     ./home/tmux.nix
     ./home/cursor.nix
     ./home/misc.nix
+    ./home/claude.nix
   ];
 
   programs.home-manager.enable = true;
