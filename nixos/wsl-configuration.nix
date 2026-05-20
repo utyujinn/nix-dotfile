@@ -1,5 +1,6 @@
 { config, pkgs, lib, home-manager, ...}:{
   
+  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "25.11";
   wsl.enable = true;
   wsl.defaultUser = "unia";
@@ -20,9 +21,78 @@
 	  nix-ld.enable = true;
   };
 	
-	virtualisation.podman.enable = true;
-	
+	virtualisation.podman = {
+    enable = true;
+    defaultNetwork.settings.dns_enabled = true;
+  };
+
+  # OxiCloud + Postgres as managed OCI containers (no working directory required)
+  virtualisation.oci-containers = {
+    backend = "podman";
+    containers = {
+
+      oxicloud-postgres = {
+        image = "postgres:18.2-alpine3.23";
+        environment = {
+          POSTGRES_USER     = "postgres";
+          POSTGRES_PASSWORD = "postgres";
+          POSTGRES_DB       = "oxicloud";
+        };
+        volumes = [ "oxicloud-pg:/var/lib/postgresql/" ];
+        extraOptions = [
+          "--network=oxicloud-net"
+          "--health-cmd=pg_isready -U postgres"
+          "--health-interval=5s"
+          "--health-retries=5"
+        ];
+      };
+
+      oxicloud = {
+        image = "diocrafts/oxicloud:latest";
+        ports = [ "8086:8086" ];
+        environment = {
+          OXICLOUD_DB_CONNECTION_STRING = "postgres://postgres:postgres@oxicloud-postgres/oxicloud";
+          OXICLOUD_SERVER_HOST          = "0.0.0.0";
+          OXICLOUD_SERVER_PORT          = "8086";
+          OXICLOUD_OIDC_ENABLED         = "false";
+          OXICLOUD_WOPI_ENABLED         = "false";
+          MIMALLOC_PURGE_DELAY          = "0";
+          MIMALLOC_ALLOW_LARGE_OS_PAGES = "0";
+        };
+        volumes = [ "oxicloud-storage:/app/storage" ];
+        extraOptions = [ "--network=oxicloud-net" ];
+        dependsOn   = [ "oxicloud-postgres" ];
+      };
+
+    };
+  };
+
+  # Create the podman network before containers start
+  systemd.services.oxicloud-network = {
+    description = "Create oxicloud-net podman network";
+    before  = [ "podman-oxicloud-postgres.service" "podman-oxicloud.service" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type            = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.bash}/bin/sh -c '${pkgs.podman}/bin/podman network create oxicloud-net 2>/dev/null; true'";
+      ExecStop  = "${pkgs.bash}/bin/sh -c '${pkgs.podman}/bin/podman network rm -f oxicloud-net 2>/dev/null; true'";
+    };
+  };
+
 	services.tailscale.enable = true;
+	services.cloudflared = {
+  enable = true;
+  tunnels = {
+    "oxicloud" = {
+      credentialsFile = "/etc/cloudflared/oxicloud.json";
+      default = "http_status:404";
+      ingress = {
+        "cloud.utyujin.com" = "http://localhost:8086";
+      };
+    };
+  };
+};
 
 	environment.systemPackages = with pkgs; [
     # Development
@@ -30,7 +100,8 @@
     uv
     gcc
     git
-		podman-compose
+		cloudflared
+    claude-code
 
     # Text Editors
 		vim
@@ -51,26 +122,6 @@
 
 	];
 
-	systemd = {
-    user.services.dbus-broker = {
-      # Override the restart behavior
-      serviceConfig.Restart = lib.mkForce "no";
-    };
-    services.seafile = {
-      after = [ "network.target" "podman.socket" ];
-      requires = [ "podman.socket" ];
-      wantedBy = [ "multi-user.target" ];
-
-      serviceConfig = {
-        Type = "oneshot";
-        RemainAfterExit = true;
-        WorkingDirectory = "/home/unia/seafile";  # compose.ymlのある場所
-        ExecStart = "${pkgs.podman}/bin/podman compose up -d";
-        ExecStop = "${pkgs.podman}/bin/podman compose down";
-        Environment = "PATH=${pkgs.podman}/bin:${pkgs.podman-compose}/bin:/run/current-system/sw/bin";
-      };
-    };
-  };
-  
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	systemd.services."sysinit-reactivation".serviceConfig.TimeoutSec = 10;
 }

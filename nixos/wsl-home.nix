@@ -13,6 +13,7 @@
     ./home/yazi.nix
     ./home/git.nix
     ./home/rclone.nix
+    ./home/claude.nix
   ];
   programs.home-manager.enable = true;
 }
