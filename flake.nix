@@ -28,6 +28,14 @@
         ];
       };
 
+      laptop-2 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./nixos/laptop2-configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+      };
+
     };
   };
 }

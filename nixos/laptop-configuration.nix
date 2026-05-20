@@ -16,7 +16,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Utyujin";
-    extraGroups = [ "wheel" "uucp" "fuse" "docker" ];
+    extraGroups = [ "wheel" "uucp" "fuse" "docker" "video" ];
     packages = with pkgs; [];
   };
 
@@ -262,6 +262,7 @@
 
     # System Tools
     brightnessctl
+    pavucontrol
     xkeysnail
     onboard
     unar
