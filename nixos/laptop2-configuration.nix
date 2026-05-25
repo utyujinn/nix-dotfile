@@ -129,6 +129,8 @@
   fonts = {
     packages = with pkgs; [
       udev-gothic
+      source-han-serif
+      source-han-sans
       (pkgs.stdenv.mkDerivation {
         name = "Kosefont JP";
         src = pkgs.fetchFromGitHub {
@@ -144,9 +146,9 @@
       })
     ];
     fontconfig.defaultFonts = {
-      serif = [ "UDEV Gothic" "Kosefont JP" ];
-      sansSerif = [ "UDEV Gothic" "Kosefont JP" ];
-      monospace = [ "UDEV Gothic" "Kosefont JP" ];
+      serif     = [ "Source Han Serif" "Kosefont JP" ];
+      sansSerif = [ "Source Han Sans"  "Kosefont JP" ];
+      monospace = [ "UDEV Gothic" ];
     };
   };
 
@@ -232,6 +234,7 @@
     tmux
     zoxide
     fzf
+    fd
     tree
     gh
     bat
@@ -248,11 +251,20 @@
     awww
     swaylock
     swayidle
-    rofi
     kanshi
     pavucontrol
     brightnessctl
     wlsunset
+
+    # Tablet UI
+    iwgtk
+    nwg-panel
+    nwg-drawer
+    nwg-dock
+    nwg-menu
+    wvkbd
+    lisgd
+    rot8
 
     # Web Browsers
     vivaldi
@@ -277,7 +289,6 @@
     snes-pixel-editor
 
     # System Tools
-    onboard
     unar
     poppler-utils
     blobdrop

@@ -1,13 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, ... }:
 {
   home = {
     username = "utyujin";
     homeDirectory = "/home/utyujin";
     stateVersion = "24.11";
   };
-
-  # espanso.nix の X11 設定を Wayland で上書き
-  home.sessionVariables.ESPANSO_BACKEND = lib.mkForce "Wayland";
 
   gtk = {
     enable = true;
@@ -23,18 +20,24 @@
   imports = [
     ./home/vim.nix
     ./home/zsh.nix
-    ./home/sway.nix
     ./home/yazi.nix
     ./home/alacritty.nix
     ./home/git.nix
     ./home/rclone.nix
-    ./home/espanso.nix
     ./home/tmux.nix
-    ./home/cursor.nix
     ./home/misc.nix
     ./home/claude.nix
-    ./home/rofi-tablet.nix
   ];
+
+  services.mako = {
+    enable = true;
+    settings = {
+      background-color = "#285577";
+      border-color = "#4c7899";
+      default-timeout = 5000;
+      border-radius = 4;
+    };
+  };
 
   programs.home-manager.enable = true;
 }

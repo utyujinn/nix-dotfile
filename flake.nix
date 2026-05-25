@@ -6,6 +6,7 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    kiri.url = "path:/home/utyujin/Dev/tablet";
   };
 
   outputs = { self, nixpkgs, nixos-wsl, home-manager, ...}@inputs: {
@@ -32,6 +33,15 @@
         system = "x86_64-linux";
         modules = [
           ./nixos/laptop2-configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+      };
+
+      kiri = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./nixos/kiri-configuration.nix
           home-manager.nixosModules.home-manager
         ];
       };

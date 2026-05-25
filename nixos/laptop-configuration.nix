@@ -85,6 +85,8 @@
   fonts = {
     packages = with pkgs; [
       udev-gothic
+      source-han-serif
+      source-han-sans
       (pkgs.stdenv.mkDerivation {
         name = "Kosefont JP";
         src = pkgs.fetchFromGitHub {
@@ -101,9 +103,9 @@
     ];
     fontconfig = {
       defaultFonts = {
-        serif = [ "UDEV Gothic" "Kosefont JP" ];
-        sansSerif = [ "UDEV Gothic" "Kosefont JP" ];
-        monospace = [ "UDEV Gothic" "Kosefont JP" ];
+        serif     = [ "Source Han Serif" "Kosefont JP" ];
+        sansSerif = [ "Source Han Sans"  "Kosefont JP" ];
+        monospace = [ "UDEV Gothic" ];
       };
     };
   };
