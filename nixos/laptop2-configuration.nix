@@ -197,6 +197,7 @@
     cmake
     gnumake
     vscode
+    zed-editor
     lazygit
     google-cloud-sdk-gce
     nodejs
@@ -242,6 +243,9 @@
     atuin
     tenv
     cloudflared
+
+    # Launcher
+    albert
 
     # Wayland / Sway ecosystem
     waybar
