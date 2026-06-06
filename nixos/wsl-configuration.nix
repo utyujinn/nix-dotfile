@@ -89,6 +89,7 @@
       default = "http_status:404";
       ingress = {
         "cloud.utyujin.com" = "http://localhost:8086";
+        "talk.utyujin.com"  = "http://localhost:8000";
       };
     };
   };
@@ -121,6 +122,34 @@
     atuin
 
 	];
+
+  fonts = {
+    packages = with pkgs; [
+      udev-gothic
+      source-han-serif
+      source-han-sans
+      (pkgs.stdenv.mkDerivation {
+        name = "Kosefont JP";
+        src = pkgs.fetchFromGitHub {
+          owner = "lxgw";
+          repo = "kose-font";
+          rev = "v3.123";
+          sha256 = "sha256-WDVMsdU9ZWWl0txziT70lbS0gGde+aCl5TBZ4OhEjHg=";
+        };
+        installPhase = ''
+          install -d -m755 $out/share/fonts/truetype
+          find . -name "*.ttf" -exec install -m644 {} $out/share/fonts/truetype/ \;
+        '';
+      })
+    ];
+    fontconfig = {
+      defaultFonts = {
+        serif     = [ "Source Han Serif" "Kosefont JP" ];
+        sansSerif = [ "Source Han Sans"  "Kosefont JP" ];
+        monospace = [ "UDEV Gothic" ];
+      };
+    };
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 	systemd.services."sysinit-reactivation".serviceConfig.TimeoutSec = 10;
