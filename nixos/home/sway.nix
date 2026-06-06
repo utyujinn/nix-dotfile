@@ -7,7 +7,7 @@
     config = rec {
       modifier = "Mod4";
       terminal = "${pkgs.alacritty}/bin/alacritty";
-      menu = "pkill rofi; ${pkgs.rofi}/bin/rofi -show drun";
+      menu = "albert toggle";
 
       fonts = {
         names = [ "UDEV Gothic" ];
@@ -37,8 +37,7 @@
         # Apps
         "${modifier}+Return" = "exec ${terminal}";
         "${modifier}+q"      = "kill";
-        "${modifier}+d"      = "exec pkill rofi; ${pkgs.rofi}/bin/rofi -show drun";
-        "${modifier}+Shift+f" = "exec sh -c 'FILE=$(${pkgs.fd}/bin/fd . --type f --hidden --exclude .git --exclude .cache --exclude node_modules --search-path \"$HOME\" | ${pkgs.rofi}/bin/rofi -dmenu -i -p \" Files\" -theme ${config.xdg.configHome}/rofi/tablet-theme.rasi) && [ -n \"$FILE\" ] && xdg-open \"$FILE\"'";
+        "${modifier}+d"      = "exec albert toggle";
         "${modifier}+v"      = "exec pavucontrol";
         "${modifier}+b"      = "exec vivaldi";
         "${modifier}+c"      = "exec code";
@@ -143,6 +142,7 @@
       ];
 
       startup = [
+        { command = "albert --platform xcb"; }
         { command = "fcitx5 -d --replace"; always = true; }
         { command = "${pkgs.mako}/bin/mako"; always = true; }
         { command = "${pkgs.awww}/bin/awww-daemon"; }

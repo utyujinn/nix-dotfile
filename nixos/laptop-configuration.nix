@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   system.stateVersion = "24.11";
 
@@ -79,6 +79,7 @@
     # allowedUDPPorts = [ ... ]; # UDP
   };
   
+  networking.nameservers = [ "1.1.1.3" "1.0.0.3" ];
   networking.wireless.iwd.enable=true;
   hardware.bluetooth.enable=true;
 
@@ -188,6 +189,7 @@
     cmake
     gnumake
     vscode
+    zed-editor
     lazygit
     google-cloud-sdk-gce
     nodejs
@@ -203,6 +205,7 @@
 		clippy
 		rustfmt
 		ltspice
+		winetricks
 		iverilog
 		gtkwave
 		kicad
@@ -354,6 +357,7 @@
 
   nixpkgs.overlays = [
     (final: prev: {
+      flameshot = (import inputs.nixpkgs-prev { inherit (prev) system; }).flameshot;
       snes-pixel-editor = final.callPackage ./mypackage/snes-pixel-editor.nix {};
       qwen-code = final.callPackage ./mypackage/qwen-code.nix {};
     })

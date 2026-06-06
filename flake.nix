@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-prev.url = "github:nixos/nixpkgs/8a1b0127302ea51e05bf4ea5a291743fac442406";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -23,6 +24,7 @@
 
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./nixos/laptop-configuration.nix
           home-manager.nixosModules.home-manager

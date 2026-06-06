@@ -33,7 +33,7 @@
     ./home/cursor.nix
     ./home/misc.nix
     ./home/claude.nix
-    ./home/rofi-tablet.nix
+    ./home/albert.nix
   ];
 
   programs.home-manager.enable = true;
