@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   toolBinDir = "${config.home.homeDirectory}/.local/bin";
 
@@ -34,6 +34,15 @@ in
     ${pkgs.uv}/bin/uv tool install serena-agent              || true
     ${pkgs.uv}/bin/uv tool install mcp-nixos                || true
     ${pkgs.uv}/bin/uv tool install "token-savior-recall[mcp]" || true
+  '';
+
+  home.activation.installEcc = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    for dir in agents commands; do
+      mkdir -p "$HOME/.claude/$dir"
+      cp -rn ${inputs.ecc}/$dir/. "$HOME/.claude/$dir/" 2>/dev/null || true
+    done
+    mkdir -p "$HOME/.claude/rules"
+    cp -rn ${inputs.ecc}/rules/common/. "$HOME/.claude/rules/" 2>/dev/null || true
   '';
 
   home.activation.claudeMcpConfig = lib.hm.dag.entryAfter [ "writeBoundary" "installMcpServers" ] ''

@@ -7,6 +7,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     kiri.url = "path:/home/utyujin/Dev/tablet";
+    ecc = {
+      url = "github:affaan-m/everything-claude-code";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, nixos-wsl, home-manager, ...}@inputs: {
@@ -14,6 +18,7 @@
 
       wsl = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./nixos/wsl-configuration.nix
           nixos-wsl.nixosModules.default

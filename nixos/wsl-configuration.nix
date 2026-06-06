@@ -1,4 +1,4 @@
-{ config, pkgs, lib, home-manager, ...}:{
+{ config, pkgs, lib, inputs, home-manager, ...}:{
   
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "25.11";
@@ -10,6 +10,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "hm-bak";
+    extraSpecialArgs = { inherit inputs; };
   };
 
   users.users.unia = {
